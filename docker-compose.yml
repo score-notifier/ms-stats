@@ -3,17 +3,17 @@ services:
     image: nats:2.10.0-alpine
     ports:
       - "4222:4222"
-  db-competitions:
-    container_name: competitions_database
+  db-stats:
+    container_name: stats_database
     image: mysql:8.4.1
     restart: always
     volumes:
-      - competitions-mysql-data:/var/lib/mysql
+      - stats-mysql-data:/var/lib/mysql
     ports:
-      - "3308:3306"
+      - "3309:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=competitions_db
+      - MYSQL_DATABASE=stats_db
 
 volumes:
-  competitions-mysql-data:
+  stats-mysql-data:
